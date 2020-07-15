@@ -11,6 +11,8 @@ tr_center <- tr_sf %>%
     x = map_dbl(geometry, 1),
     y = map_dbl(geometry, 2)
   )
+# Get Antalya label into the borders ----
+tr_center$y[[which(tr_center$province_code == 7)]] <- 37.07
 # create the plot ----
 p <- plot_ly(tr_sf) %>% 
   add_sf(
